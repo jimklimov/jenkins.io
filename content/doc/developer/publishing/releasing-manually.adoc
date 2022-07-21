@@ -96,6 +96,16 @@ mvn release:prepare release:perform
 // NOTE: While it is be possible to specify the username and password on the command line, that would require your accounts on GitHub and the Jenkins community to match, and prevent you from using two factor authentication on GitHub.
 // Neither is a recommend practice.
 
+=== Proclaiming a GitHub release
+
+After the GitHub repository for the plugin has been updated by the command above, please visit the Releases page of the project to make sure a GitHub release has been drafted and published. If you have the release-drafter GitHub action set up, there may be a draft prepared with release notes, but a maintainer has to actually "publish" it.
+
+=== Updating dependent projects
+
+After the Artifactory gets updated with the new build of the plugin, other projects may benefit from it.
+
+If you maintain further plugins that consume a recently published one and their repositories have the dependabot GitHub action set up, it can be helpful to go to their "Insights" page on GitHub, then to "Dependency graph" and the "Dependabot" tab in it. While typically dependabot runs every few days, you can trigger its "Check for updates" manually from the "Last checked ... ago" link for "pom.xml" monitoring. After a few minutes the bot would post pull requests to update such repositories with newly found dependency versions.
+
 == Troubleshooting
 
 First, make sure your plugin uses a reasonably up to date link:../../plugin-development/updating-parent[parent POM].
